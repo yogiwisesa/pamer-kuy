@@ -8,7 +8,9 @@
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["./enzyme-setup.js"]
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -23,7 +25,13 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^32.0.0"
+    "enzyme": "^3.9.0",
+    "jest-expo": "^32.0.0",
+    "jest-serializer-enzyme": "^1.0.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.8.4",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5"
   },
   "private": true
 }
