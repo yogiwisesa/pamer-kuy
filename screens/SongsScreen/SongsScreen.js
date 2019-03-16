@@ -54,7 +54,7 @@ export class SongsScreen extends React.Component {
       {
         generatedActivity: {
           type: 'song',
-          text: `Listening 🎵 ${selectedSong.name} by ${selectedSong.artist}`
+          text: `🎵 ${selectedSong.name} by ${selectedSong.artist}`
         }
       },
       () => {

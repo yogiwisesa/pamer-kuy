@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
+import moment from "moment";
 import {
   Container,
   Content,
@@ -72,11 +73,11 @@ export class MovieScreen extends React.Component {
         let text = '';
         if (this.state.type === 'tv') {
           text = `📺 ${selectedMovie.original_name} (📅 ${
-            selectedMovie.first_air_date
+            moment(selectedMovie.first_air_date).format('YYYY')
           } - ⭐ ${selectedMovie.vote_average})`;
         } else {
           text = `🎬 ${selectedMovie.original_title} (📅 ${
-            selectedMovie.release_date
+            moment(selectedMovie.release_date).format('YYYY')
           } - ⭐ ${selectedMovie.vote_average})`;
         }
 
@@ -162,7 +163,7 @@ export class MovieScreen extends React.Component {
                           <Text
                             style={{ fontWeight: 'bold', color: '#424242' }}
                           >
-                            {`${item.original_name} (${item.first_air_date})`}
+                            {`${item.original_name} (${moment(item.first_air_date).format('YYYY')})`}
                           </Text>
                           <Text style={{ color: '#424242' }}>
                             {item.vote_average}
@@ -174,7 +175,7 @@ export class MovieScreen extends React.Component {
                           <Text
                             style={{ fontWeight: 'bold', color: '#424242' }}
                           >
-                            {`${item.original_title} (${item.release_date})`}
+                            {`${item.original_title} (${moment(item.release_date).format('YYYY')})`}
                           </Text>
                           <Text style={{ color: '#424242' }}>
                             {item.vote_average}
