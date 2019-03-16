@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552661874891" clover="3.2.0">
-  <project timestamp="1552661874891" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="3" coveredelements="3" complexity="0" loc="2" ncloc="2" packages="2" files="2" classes="2">
-      <package name="PamerKuy">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="enzyme-setup.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/enzyme-setup.js">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="4" count="1" type="stmt"/>
+<coverage generated="1552666050679" clover="3.2.0">
+  <project timestamp="1552666050679" name="All files">
+    <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="7" coveredelements="3" complexity="0" loc="6" ncloc="6" packages="2" files="2" classes="2">
+      <package name="navigation">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="AppNavigator.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/navigation/AppNavigator.js">
+          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="PamerKuy.screens.StatusScreen">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <package name="screens.StatusScreen">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="StatusScreen.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/screens/StatusScreen/StatusScreen.js">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="7" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>
