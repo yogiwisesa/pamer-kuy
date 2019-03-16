@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { LoadSearchSongAction } from '../../redux/songs/actions';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
@@ -32,7 +32,8 @@ export class SongsScreen extends React.Component {
     super(props);
 
     this.state = {
-      keyword: ''
+      keyword: '',
+      generatedActivity: {},
     };
   }
 
@@ -41,6 +42,18 @@ export class SongsScreen extends React.Component {
     this.setState({
       keyword: text
     });
+  };
+
+  handleGenerateActivity = (index) => {
+    const selectedSong = this.props.SongReducer.data[index];
+    this.setState({
+      generatedActivity: {
+        type: 'song',
+        text: `🎵 ${selectedSong.name} by ${selectedSong.artist}`
+      }
+    }, () => {
+      Alert.alert(this.state.generatedActivity.text)
+    })
   };
 
   render() {
@@ -71,7 +84,7 @@ export class SongsScreen extends React.Component {
               </CardItem>
             )}
             {this.props.SongReducer.data.map((item, index) => (
-              <CardItem button bordered key={index}>
+              <CardItem button bordered key={index} onPress={() => {this.handleGenerateActivity(index)}}>
                 <Body>
                   <Grid>
                     <Col size={25}>
