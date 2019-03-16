@@ -2,7 +2,7 @@ import * as types from './types';
 
 const initialState = {
   data: [],
-  loading: true,
+  loading: false,
   errorMessage: ''
 };
 

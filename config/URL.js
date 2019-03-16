@@ -1,0 +1,1 @@
+export const BASE_URL_SONG = 'http://ws.audioscrobbler.com/2.0?api_key=e397bfd1cd9dae1249060612477b255f&format=json'
