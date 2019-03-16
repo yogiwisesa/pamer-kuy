@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552737009100" clover="3.2.0">
-  <project timestamp="1552737009100" name="All files">
-    <metrics statements="32" coveredstatements="18" conditionals="8" coveredconditionals="5" methods="17" coveredmethods="3" elements="57" coveredelements="26" complexity="0" loc="32" ncloc="32" packages="4" files="5" classes="5">
+<coverage generated="1552757961928" clover="3.2.0">
+  <project timestamp="1552757961928" name="All files">
+    <metrics statements="42" coveredstatements="27" conditionals="12" coveredconditionals="9" methods="20" coveredmethods="6" elements="74" coveredelements="42" complexity="0" loc="42" ncloc="42" packages="5" files="7" classes="7">
       <package name="PamerKuy">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="enzyme-setup.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/enzyme-setup.js">
@@ -10,8 +10,25 @@
         </file>
       </package>
       <package name="PamerKuy.config">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="URL.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/config/URL.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="PamerKuy.redux.activity">
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <file name="actions.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/redux/activity/actions.js">
+          <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+        </file>
+        <file name="types.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/redux/activity/types.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="1" type="stmt"/>
         </file>
@@ -43,22 +60,24 @@
         </file>
       </package>
       <package name="PamerKuy.screens.SongsScreen">
-        <metrics statements="13" coveredstatements="8" conditionals="8" coveredconditionals="5" methods="9" coveredmethods="3"/>
+        <metrics statements="15" coveredstatements="12" conditionals="12" coveredconditionals="9" methods="9" coveredmethods="6"/>
         <file name="SongsScreen.js" path="/Users/yogiwisesa/Documents/dev/react-native/PamerKuy/screens/SongsScreen/SongsScreen.js">
-          <metrics statements="13" coveredstatements="8" conditionals="8" coveredconditionals="5" methods="9" coveredmethods="3"/>
-          <line num="26" count="0" type="stmt"/>
-          <line num="32" count="2" type="stmt"/>
-          <line num="34" count="2" type="stmt"/>
-          <line num="41" count="1" type="stmt"/>
-          <line num="42" count="1" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
-          <line num="55" count="0" type="stmt"/>
-          <line num="60" count="3" type="stmt"/>
-          <line num="87" count="0" type="stmt"/>
-          <line num="115" count="1" type="stmt"/>
-          <line num="124" count="1" type="stmt"/>
-          <line num="128" count="1" type="stmt"/>
+          <metrics statements="15" coveredstatements="12" conditionals="12" coveredconditionals="9" methods="9" coveredmethods="6"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="33" count="3" type="stmt"/>
+          <line num="35" count="3" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="61" count="1" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="68" count="6" type="stmt"/>
+          <line num="101" count="4" type="stmt"/>
+          <line num="106" count="0" type="stmt"/>
+          <line num="136" count="1" type="stmt"/>
+          <line num="145" count="1" type="stmt"/>
+          <line num="149" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>

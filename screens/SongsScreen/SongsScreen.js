@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Alert } from 'react-native';
 import { LoadSearchSongAction } from '../../redux/songs/actions';
+import { GenerateNewActivityAction } from '../../redux/activity/actions';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import {
@@ -33,27 +34,34 @@ export class SongsScreen extends React.Component {
 
     this.state = {
       keyword: '',
-      generatedActivity: {},
+      generatedActivity: {
+        type: '',
+        text: ''
+      }
     };
   }
 
   handleTextChanged = text => {
-    this.props.LoadSearchSongAction(text);
+    this.props.LoadSearchSongAction(text.trim());
     this.setState({
       keyword: text
     });
   };
 
-  handleGenerateActivity = (index) => {
+  handleGenerateActivity = index => {
     const selectedSong = this.props.SongReducer.data[index];
-    this.setState({
-      generatedActivity: {
-        type: 'song',
-        text: `🎵 ${selectedSong.name} by ${selectedSong.artist}`
+    this.setState(
+      {
+        generatedActivity: {
+          type: 'song',
+          text: `Listening 🎵 ${selectedSong.name} by ${selectedSong.artist}`
+        }
+      },
+      () => {
+        this.props.GenerateNewActivityAction(this.state.generatedActivity);
+        this.props.navigation.pop();
       }
-    }, () => {
-      Alert.alert(this.state.generatedActivity.text)
-    })
+    );
   };
 
   render() {
@@ -75,16 +83,29 @@ export class SongsScreen extends React.Component {
             )}
             {!this.state.keyword && isEmpty(this.props.SongReducer.data) && (
               <CardItem bordered style={{ justifyContent: 'center' }}>
-                <Text>Just try it! don't be afraid :D</Text>
+                <Text>Just try it! don't be afraid 😄</Text>
               </CardItem>
             )}
+            {isEmpty(this.props.SongReducer.data) && !this.props.SongReducer.loading && !!this.state.keyword && (
+              <CardItem>
+                <Text>Uh oh, Sorry, we can't find anything 😢</Text>
+              </CardItem>
+            )}
+
             {!isEmpty(this.props.SongReducer.error) && (
               <CardItem bordered style={{ justifyContent: 'center' }}>
                 <Text>{this.props.SongReducer.error}</Text>
               </CardItem>
             )}
             {this.props.SongReducer.data.map((item, index) => (
-              <CardItem button bordered key={index} onPress={() => {this.handleGenerateActivity(index)}}>
+              <CardItem
+                button
+                bordered
+                key={index}
+                onPress={() => {
+                  this.handleGenerateActivity(index);
+                }}
+              >
                 <Body>
                   <Grid>
                     <Col size={25}>
@@ -109,8 +130,8 @@ export class SongsScreen extends React.Component {
         </Content>
       </Container>
     );
-  }
-}
+  };
+};
 
 const styles = StyleSheet.create({
   contentContainer: {
@@ -126,7 +147,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  LoadSearchSongAction
+  LoadSearchSongAction,
+  GenerateNewActivityAction
 };
 
 export default connect(

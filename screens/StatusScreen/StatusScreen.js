@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
 import {
   ActionSheet,
   Container,
@@ -18,21 +19,29 @@ import {
 } from 'native-base';
 
 export class StatusScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Pamer Kuy'
+    };
+  };
 
   handleShowActionSheet = () => {
     ActionSheet.show({
-      options: ["I'm watching movie", "I'm listening music"],
+      options: ["I'm listening music", "I'm watching movie",  "I'm watching TV Show"],
       title: "What are you doing?"
     }, indexSelected => {
-      this.handleNavigateActionSheet(indexSelected)
+      this.handleNavigateActionSheet(indexSelected);
     })
   };
 
   handleNavigateActionSheet = (indexSelected) => {
-    if (indexSelected === 1) {
+    console.log(indexSelected);
+    if (indexSelected === 0) {
       this.props.navigation.push('SongsScreen');
-    } else {
-      this.props.navigation.push('SongsScreen');
+    } else if (indexSelected === 1) {
+      this.props.navigation.push('MovieScreen', { TypeOfMovie:'movie' });
+    } else if (indexSelected === 2) {
+      this.props.navigation.push('MovieScreen', { TypeOfMovie:'tv' });
     }
   };
 
@@ -46,6 +55,8 @@ export class StatusScreen extends React.Component {
                 <Form style={{ flexDirection: 'row', ...styles.marginVertical}}>
                   <Textarea style={{ flex: 1}} placeholder="What are you thinking?" bordered />
                 </Form>
+
+                {!!this.props.ActivityReducer.generatedActivity.text && <Text style={styles.marginVertical}>{this.props.ActivityReducer.generatedActivity.text}</Text>}
 
                 <Button onPress={this.handleShowActionSheet} full bordered>
                     <Text>What are you doing?</Text>
@@ -77,4 +88,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export default StatusScreen;
+const mapStateToProps = state => ({
+  ActivityReducer: state.ActivityReducer
+});
+
+const mapDispatchToProps = {
+  
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StatusScreen);
