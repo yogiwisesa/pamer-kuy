@@ -1,0 +1,1 @@
+export const SET_TWITTER_TOKEN = 'SET_TWITTER_TOKEN';

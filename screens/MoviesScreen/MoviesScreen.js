@@ -72,13 +72,15 @@ export class MovieScreen extends React.Component {
       prevState => {
         let text = '';
         if (this.state.type === 'tv') {
-          text = `📺 ${selectedMovie.original_name} (📅 ${
-            moment(selectedMovie.first_air_date).format('YYYY')
-          } - ⭐ ${selectedMovie.vote_average})`;
+          text = `📺 ${selectedMovie.original_name}`;
+          // (📅 ${
+          //   moment(selectedMovie.first_air_date).format('YYYY')
+          // } - ⭐ ${selectedMovie.vote_average})
         } else {
-          text = `🎬 ${selectedMovie.original_title} (📅 ${
-            moment(selectedMovie.release_date).format('YYYY')
-          } - ⭐ ${selectedMovie.vote_average})`;
+          text = `🎬 ${selectedMovie.original_title}`;
+          // (📅 ${
+          //   moment(selectedMovie.release_date).format('YYYY')
+          // } - ⭐ ${selectedMovie.vote_average})
         }
 
         return {

@@ -6,6 +6,8 @@ import { StyleProvider, getTheme, Root } from 'native-base';
 import platform from './native-base-theme/variables/platform';
 import { Provider } from 'react-redux';
 import configureStore from './redux/store';
+import tokens from './config/TwitterKeys';
+import twitter from 'react-native-simple-twitter';
 // At the top of your file
 import { Ionicons } from '@expo/vector-icons';
 
@@ -43,6 +45,8 @@ export default class App extends React.Component {
   }
 
   _loadResourcesAsync = async () => {
+    twitter.setConsumerKey(tokens.consumerKey, tokens.consumerSecret)
+
     return Promise.all([
       Asset.loadAsync([
         require('./assets/images/robot-dev.png'),
