@@ -3,20 +3,18 @@ import { StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import twitter from 'react-native-simple-twitter';
 import { StackActions, NavigationActions } from 'react-navigation';
+import {AsyncStorage} from 'react-native';
 import {
   ActionSheet,
   Container,
-  Header,
-  Title,
   Button,
   Text,
   Body,
   Content,
-  Item,
   Form,
   Card,
   CardItem,
-  Input,
+  Icon,
   Textarea,
   Toast,
   Spinner
@@ -26,7 +24,12 @@ export class StatusScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Pamer Kuy',
-      headerLeft: null
+      headerLeft: null,
+      headerRight: (
+        <Button transparent onPress={this.handleLogout}>
+          <Icon name="close-circle-outline" style={{ margin: 8 }} />
+        </Button>
+      )
     };
   };
 
@@ -58,6 +61,11 @@ export class StatusScreen extends React.Component {
       this.navigateToLoginScreen();
     }
   }
+
+  handleLogout = async () => {
+    await AsyncStorage.clear();
+    this.navigateToLoginScreen();
+  };
 
   handleStatusChange = text => {
     this.setState({
@@ -99,7 +107,6 @@ export class StatusScreen extends React.Component {
   };
 
   handlePostToTwitter = () => {
-
     this.setState({
       isPostingTwitterLoading: true
     });
@@ -195,7 +202,12 @@ export class StatusScreen extends React.Component {
                   </Text>
                 )}
 
-                <Button onPress={this.handleShowActionSheet} full bordered style={{ marginBottom: 8 }}>
+                <Button
+                  onPress={this.handleShowActionSheet}
+                  full
+                  bordered
+                  style={{ marginBottom: 8 }}
+                >
                   <Text>What are you doing?</Text>
                 </Button>
               </Body>
