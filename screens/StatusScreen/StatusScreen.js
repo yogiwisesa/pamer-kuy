@@ -26,7 +26,7 @@ export class StatusScreen extends React.Component {
       title: 'Pamer Kuy',
       headerLeft: null,
       headerRight: (
-        <Button transparent onPress={this.handleLogout}>
+        <Button transparent onPress={navigation.getParam('handleLogout')}>
           <Icon name="close-circle-outline" style={{ margin: 8 }} />
         </Button>
       )
@@ -48,6 +48,8 @@ export class StatusScreen extends React.Component {
   }
 
   componentDidMount() {
+    this.props.navigation.setParams({ handleLogout: this.handleLogout })
+
     const { token, tokenSecret } = this.props.TwitterReducer.token;
     console.log(`ya ${token} ${tokenSecret}`);
     if (token && tokenSecret) {

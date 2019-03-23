@@ -101,7 +101,7 @@ export class LoginScreen extends React.Component {
           </View>
           <Button full rounded onPress={() => console.log('kuy')}>
             <TWLoginButton
-              style={{ width: '100%', height: 60 }}
+              style={{ width: '100%', height: '100%' }}
               type="TouchableOpacity"
               onPress={this.onPress}
               onGetAccessToken={this.onGetAccessToken}
@@ -109,7 +109,7 @@ export class LoginScreen extends React.Component {
               onClose={this.onClose}
               onError={this.onError}
             >
-              <Text style={{ textAlign: 'center' }}>Twitterでログインする</Text>
+              <Text style={{ textAlign: 'center' }}>Login</Text>
             </TWLoginButton>
           </Button>
         </View>
