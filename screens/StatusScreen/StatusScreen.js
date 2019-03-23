@@ -3,7 +3,8 @@ import { StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import twitter from 'react-native-simple-twitter';
 import { StackActions, NavigationActions } from 'react-navigation';
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
+import { AdMobBanner } from 'react-native-admob';
 import {
   ActionSheet,
   Container,
@@ -48,7 +49,7 @@ export class StatusScreen extends React.Component {
   }
 
   componentDidMount() {
-    this.props.navigation.setParams({ handleLogout: this.handleLogout })
+    this.props.navigation.setParams({ handleLogout: this.handleLogout });
 
     const { token, tokenSecret } = this.props.TwitterReducer.token;
     console.log(`ya ${token} ${tokenSecret}`);
@@ -215,6 +216,13 @@ export class StatusScreen extends React.Component {
               </Body>
             </CardItem>
           </Card>
+
+          <AdMobBanner
+            adSize="fullBanner"
+            adUnitID="ca-app-pub-8893081584544903/4993095511"
+            testDevices={[AdMobBanner.simulatorId]}
+            onAdFailedToLoad={error => console.error(error)}
+          />
 
           <Button
             onPress={this.handleGenerateText}

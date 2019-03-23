@@ -13,7 +13,6 @@ export class LoginScreen extends React.Component {
   };
 
   async componentDidMount() {
-    console.log('kuy');
     try {
       const token = await AsyncStorage.getItem('pamerkuy-token@oauth_token');
       const tokenSecret = await AsyncStorage.getItem(
